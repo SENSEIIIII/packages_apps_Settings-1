@@ -98,6 +98,7 @@ android_library {
         "accountfeatureprovidergoogle",
         "faceunlock_framework",
         "columbus-settingsgoogle",
+        "SystemUISharedLib",
     ],
 
     libs: [
