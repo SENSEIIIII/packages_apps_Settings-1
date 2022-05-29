@@ -39,8 +39,6 @@ import com.android.settings.widget.LabeledSeekBarPreference;
 import com.android.settings.widget.SeekBarPreference;
 import com.android.settingslib.search.SearchIndexable;
 
-import static com.android.systemui.shared.recents.utilities.Utilities.isTablet;
-
 /**
  * A fragment to include all the settings related to Gesture Navigation mode.
  */
@@ -104,23 +102,10 @@ public class GestureNavigationSettingsFragment extends DashboardFragment {
         initSeekBarPreference(RIGHT_EDGE_SEEKBAR_KEY);
         initSeekBarPreference(KEY_BACK_HEIGHT);
 
-        boolean isTaskbarEnabled = Settings.System.getInt(getContext().getContentResolver(),
-                Settings.System.ENABLE_TASKBAR, isTablet(getContext()) ? 1 : 0) == 1;
-        if (isTaskbarEnabled) {
-            getPreferenceScreen().removePreference(
-                    getPreferenceScreen().findPreference(GESTURE_NAVBAR_LENGTH_KEY));
-            getPreferenceScreen().removePreference(
-                    getPreferenceScreen().findPreference(GESTURE_NAVBAR_RADIUS_KEY));
-            getPreferenceScreen().removePreference(
-                    getPreferenceScreen().findPreference(GESTURE_NAVBAR_MARGIN_BOTTOM_KEY));
-            getPreferenceScreen().removePreference(
-                    getPreferenceScreen().findPreference(FULLSCREEN_GESTURE_PREF_KEY));
-        } else {
-            initGestureNavbarLengthPreference();
-            initFullscreenGesturePreference();
-            initGestureBarRadiusPreference();
-            initGestureBarMarginBottomPreference();
-        }
+        initGestureNavbarLengthPreference();
+        initFullscreenGesturePreference();
+        initGestureBarRadiusPreference();
+        initGestureBarMarginBottomPreference();
     }
 
     @Override
