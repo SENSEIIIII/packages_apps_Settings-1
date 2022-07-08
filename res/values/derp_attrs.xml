@@ -24,6 +24,4 @@
         <attr name="digits" format="integer" />
     </declare-styleable>
 
-    <attr name="secureValue" format="string" />
-
 </resources>

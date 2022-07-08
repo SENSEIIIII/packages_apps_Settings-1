@@ -56,6 +56,7 @@ android_library {
     resource_dirs: [
         "res",
         "DerpSpace/res",
+        "res-pixel",
     ],
 
     static_libs: [
@@ -98,8 +99,10 @@ android_library {
         "powerusagefeaturegoogle",
         "accountfeatureprovidergoogle",
         "faceunlock_framework",
-        "columbus-settingsgoogle",
+        "SettingsGoogle-lib",
     ],
+    manifest: "AndroidManifest.xml",
+    additional_manifests: ["SettingsGoogle-Manifest.xml"],
 
     libs: [
         "telephony-common",
@@ -170,6 +173,12 @@ android_library_import {
     aars: ["libs/glide-4.9.0.aar"],
 }
 
+java_import  {
+	name: "SettingsGoogle-lib",
+    sdk_version: "current",
+	jars: ["libs/SettingsGoogle.jar"],
+}
+
 java_import {
     name: "powerusagefeaturegoogle",
     jars: ["libs/powerusagefeaturegoogle.jar"],
@@ -179,11 +188,5 @@ java_import {
 java_import {
     name: "accountfeatureprovidergoogle",
     jars: ["libs/accountfeatureprovidergoogle.jar"],
-    sdk_version: "current",
-}
-
-java_import {
-    name: "columbus-settingsgoogle",
-    jars: ["libs/columbus-settings.jar"],
     sdk_version: "current",
 }
